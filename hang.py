@@ -15,18 +15,11 @@ def load_words():
     line = in_file.readline()
     # wordlist: list of strings
     wordlist = string.split(line)
-    print "  ", len(wordlist), "words loaded."
+    print "  ", len(wordlist), "words loaded.\n"
     return random.choice(wordlist)
 
 
 def is_word_guessed(secret_word, letters_guessed):
-    secretLetters = []
-
-#    for letter in secret_word:
-#        if letter in secretLetters:
-#            secretLetters.append(letter)
-#        else:
-#            pass
 
     for letter in secret_word:
         if letter in letters_guessed:
@@ -52,9 +45,9 @@ def hangman(secret_word):
 
     guesses = 8
     letters_guessed = []
-    print 'Welcome to the game, Hangam!'
+    print 'Welcome to the game, Hangam!\n'
     print 'I am thinking of a word that is', len(secret_word), ' letters long.'
-    print '-------------'
+    print '-------------\n'
 
     while  is_word_guessed(secret_word, letters_guessed) == False and guesses >0:
         print 'You have ', guesses, 'guesses left.'
@@ -64,7 +57,7 @@ def hangman(secret_word):
             if letter in letters_guessed:
                 available = available.replace(letter, '')
 
-        print 'Available letters', available
+        print 'Available letters', available, '\n'
         letter = raw_input('Please guess a letter: ')
         if letter in letters_guessed:
 
