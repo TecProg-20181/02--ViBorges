@@ -1,13 +1,12 @@
 import random
 import string
 
-wordlist_file = "words.txt"
-
 def load_words():
     """
     Depending on the size of the word list, this function may
     take a while to finish.
     """
+    wordlist_file = "palavras.txt"
     print 'Loading word list from file...'
     # in_file: file
     in_file = open(wordlist_file, 'r', 0)
@@ -23,9 +22,10 @@ def is_word_guessed(secret_word, letters_guessed):
 
     for letter in secret_word:
         if letter in letters_guessed:
-            return True
+            pass
         else:
             return False
+    return True
 
 def guessed_word(letters_guessed):
 
@@ -89,9 +89,6 @@ def hangman(secret_word):
             print 'Congratulations, you won!'
         else:
             print 'Sorry, you ran out of guesses. The word was', secret_word, '.'
-
-
-
 
 secret_word = load_words().lower()
 hangman(secret_word)
