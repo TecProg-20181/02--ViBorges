@@ -17,7 +17,6 @@ def load_words():
     print '  ', len(wordlist), 'words loaded.\n'
     return random.choice(wordlist)
 
-
 def is_word_guessed(secret_word, letters_guessed):
 
     for letter in secret_word:
@@ -61,24 +60,24 @@ def hangman(secret_word):
         print 'You have', guesses, 'guesses left.'
 
         available = available_letters(letters_guessed)
-
         print 'Available letters', available, '\n'
-        letter = raw_input('Please guess a letter: ')
-        if letter in letters_guessed:
 
+        letter = raw_input('Please guess a letter: ')
+
+        if letter in letters_guessed:
             guessed = guessed_word(letters_guessed)
 
             print 'Oops! You have already guessed that letter: ', guessed
+
         elif letter in secret_word:
             letters_guessed.append(letter)
-
             guessed = guessed_word(letters_guessed)
 
             print 'Good Guess: ', guessed
+
         else:
             guesses -= 1
             letters_guessed.append(letter)
-
             guessed = guessed_word(letters_guessed)
 
             print 'Oops! That letter is not in my word: ',  guessed
